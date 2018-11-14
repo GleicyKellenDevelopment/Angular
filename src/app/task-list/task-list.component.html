@@ -1,0 +1,33 @@
+<input type="text" [(ngModel)]="item">
+<button (click)="add()">Add to List</button>
+
+<ul>
+  <li *ngFor="let item of tasks" [innerHtml]="item">
+    
+  </li>
+</ul>
+
+<div [hidden]="isAdmin">
+  Common User
+</div>
+<br/>
+
+<div [hidden]="!isAdmin">
+  Administrador
+</div>
+<br/>
+
+<div *ngIf="isAdmin">
+  Administrador 2
+</div>
+
+<div  [ngSwitch]="profile">
+<p *ngSwitchCase="2">
+  you can read & write
+</p>
+<p *ngSwitchCase="1">
+    you can read
+</p>
+<p *ngSwitchDefault>
+  Congragulations!
+</p>
