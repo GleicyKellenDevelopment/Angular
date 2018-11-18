@@ -6,7 +6,7 @@
     
   </li>
 </ul>
-
+<!-- DIRECTIVE -->
 <div [hidden]="isAdmin">
   Common User
 </div>
@@ -31,3 +31,19 @@
 <p *ngSwitchDefault>
   Congragulations!
 </p>
+<br/>
+<!-- VALIDANDO FORMULARIO -->
+<form #form="ngForm">
+<div>
+  <label for="name">NAME</label>
+  <input type="text" id="name" name="name" [(ngModel)]="name" #nameVerify="ngModel" required>
+  <span *ngIf="nameVerify.invalid">Name is required</span>
+</div>
+<br/>
+<div>
+  <label for="email">EMAIL</label>
+  <input type="text" id="email" name="email" [(ngModel)]="email" #emailVerify="ngModel" required email>
+  <span *ngIf="emailVerify.invalid">Email is required</span>
+</div>
+<button type="submit" [disabled]="!form.valid">Enviar</button>
+</form>
